@@ -13,10 +13,12 @@
 		8E23FEA028A7FC6C00E8678F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E23FE9E28A7FC6C00E8678F /* Main.storyboard */; };
 		8E23FEA228A7FC6D00E8678F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E23FEA128A7FC6D00E8678F /* Assets.xcassets */; };
 		8E23FEA528A7FC6D00E8678F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E23FEA328A7FC6D00E8678F /* LaunchScreen.storyboard */; };
+		8E9DF7AD28A7FFCA0077DC09 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DF7AC28A7FFCA0077DC09 /* Forecast.swift */; };
+		8E9DF7B028A803860077DC09 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9DF7AF28A803860077DC09 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8E23FE9528A7FC6C00E8678F /* 7Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 7Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E23FE9528A7FC6C00E8678F /* OpenWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E23FE9828A7FC6C00E8678F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E23FE9A28A7FC6C00E8678F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8E23FE9C28A7FC6C00E8678F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		8E23FEA128A7FC6D00E8678F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E23FEA428A7FC6D00E8678F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E23FEA628A7FC6D00E8678F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E9DF7AC28A7FFCA0077DC09 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		8E9DF7AF28A803860077DC09 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +44,7 @@
 		8E23FE8C28A7FC6C00E8678F = {
 			isa = PBXGroup;
 			children = (
-				8E23FE9728A7FC6C00E8678F /* 7Timer */,
+				8E23FE9728A7FC6C00E8678F /* OpenWeather */,
 				8E23FE9628A7FC6C00E8678F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +52,81 @@
 		8E23FE9628A7FC6C00E8678F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E23FE9528A7FC6C00E8678F /* 7Timer.app */,
+				8E23FE9528A7FC6C00E8678F /* OpenWeather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8E23FE9728A7FC6C00E8678F /* 7Timer */ = {
+		8E23FE9728A7FC6C00E8678F /* OpenWeather */ = {
+			isa = PBXGroup;
+			children = (
+				8E9DF7AE28A8036E0077DC09 /* Network */,
+				8E23FEAC28A7FD2200E8678F /* App */,
+				8E23FEAF28A7FD4400E8678F /* ViewControllers */,
+				8E23FEAD28A7FD2F00E8678F /* Storyboards */,
+				8E23FEAE28A7FD3B00E8678F /* Resources */,
+				8E23FEB228A7FD6300E8678F /* Models */,
+			);
+			path = OpenWeather;
+			sourceTree = "<group>";
+		};
+		8E23FEAC28A7FD2200E8678F /* App */ = {
 			isa = PBXGroup;
 			children = (
 				8E23FE9828A7FC6C00E8678F /* AppDelegate.swift */,
 				8E23FE9A28A7FC6C00E8678F /* SceneDelegate.swift */,
-				8E23FE9C28A7FC6C00E8678F /* ViewController.swift */,
-				8E23FE9E28A7FC6C00E8678F /* Main.storyboard */,
-				8E23FEA128A7FC6D00E8678F /* Assets.xcassets */,
-				8E23FEA328A7FC6D00E8678F /* LaunchScreen.storyboard */,
 				8E23FEA628A7FC6D00E8678F /* Info.plist */,
 			);
-			path = 7Timer;
+			path = App;
+			sourceTree = "<group>";
+		};
+		8E23FEAD28A7FD2F00E8678F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8E23FE9E28A7FC6C00E8678F /* Main.storyboard */,
+				8E23FEA328A7FC6D00E8678F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8E23FEAE28A7FD3B00E8678F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8E23FEA128A7FC6D00E8678F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E23FEAF28A7FD4400E8678F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8E23FE9C28A7FC6C00E8678F /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8E23FEB228A7FD6300E8678F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8E9DF7AC28A7FFCA0077DC09 /* Forecast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8E9DF7AE28A8036E0077DC09 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E9DF7AF28A803860077DC09 /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E23FE9428A7FC6C00E8678F /* 7Timer */ = {
+		8E23FE9428A7FC6C00E8678F /* OpenWeather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E23FEA928A7FC6D00E8678F /* Build configuration list for PBXNativeTarget "7Timer" */;
+			buildConfigurationList = 8E23FEA928A7FC6D00E8678F /* Build configuration list for PBXNativeTarget "OpenWeather" */;
 			buildPhases = (
 				8E23FE9128A7FC6C00E8678F /* Sources */,
 				8E23FE9228A7FC6C00E8678F /* Frameworks */,
@@ -82,9 +136,9 @@
 			);
 			dependencies = (
 			);
-			name = 7Timer;
+			name = OpenWeather;
 			productName = 7Timer;
-			productReference = 8E23FE9528A7FC6C00E8678F /* 7Timer.app */;
+			productReference = 8E23FE9528A7FC6C00E8678F /* OpenWeather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E23FE9028A7FC6C00E8678F /* Build configuration list for PBXProject "7Timer" */;
+			buildConfigurationList = 8E23FE9028A7FC6C00E8678F /* Build configuration list for PBXProject "OpenWeather" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E23FE9428A7FC6C00E8678F /* 7Timer */,
+				8E23FE9428A7FC6C00E8678F /* OpenWeather */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +192,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E9DF7AD28A7FFCA0077DC09 /* Forecast.swift in Sources */,
 				8E23FE9D28A7FC6C00E8678F /* ViewController.swift in Sources */,
+				8E9DF7B028A803860077DC09 /* NetworkManager.swift in Sources */,
 				8E23FE9928A7FC6C00E8678F /* AppDelegate.swift in Sources */,
 				8E23FE9B28A7FC6C00E8678F /* SceneDelegate.swift in Sources */,
 			);
@@ -289,7 +345,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DPTAQUM9U4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = 7Timer/Info.plist;
+				INFOPLIST_FILE = OpenWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DPTAQUM9U4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = 7Timer/Info.plist;
+				INFOPLIST_FILE = OpenWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -339,7 +395,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E23FE9028A7FC6C00E8678F /* Build configuration list for PBXProject "7Timer" */ = {
+		8E23FE9028A7FC6C00E8678F /* Build configuration list for PBXProject "OpenWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E23FEA728A7FC6D00E8678F /* Debug */,
@@ -348,7 +404,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8E23FEA928A7FC6D00E8678F /* Build configuration list for PBXNativeTarget "7Timer" */ = {
+		8E23FEA928A7FC6D00E8678F /* Build configuration list for PBXNativeTarget "OpenWeather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E23FEAA28A7FC6D00E8678F /* Debug */,
