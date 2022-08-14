@@ -20,9 +20,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         stackViewInfo.isHidden = true
         fetchWeather()
+        setSearchBar()
+        searchCity.delegate = self
+    }
+    
+    private func setSearchBar() {
         searchCity.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         searchCity.searchTextField.textColor = .white
-        searchCity.delegate = self
     }
     
     private func setData(with forecast: Forecast) {
@@ -46,10 +50,9 @@ class ViewController: UIViewController {
             self.searchCity.text = ""
         }
     }
-
-
 }
 
+// MARK: - UISearchBarDelegate
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchUrl = searchCity.text?.replacingOccurrences(of: " ", with: "%20")
