@@ -48,11 +48,11 @@ class NetworkManager {
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
                 completion(.failure(.noData))
+                print(error ?? "There is no data, check why")
                 return
             }
             do {
-                let decoder = JSONDecoder()
-                let type = try decoder.decode(T.self, from: data)
+                let type = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(type))
                 }
