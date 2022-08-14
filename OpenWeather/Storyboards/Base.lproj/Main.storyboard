@@ -23,7 +23,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O0k-GA-xFs">
                                 <rect key="frame" x="80" y="124" width="254" height="263.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwg-uI-Tdp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hwg-uI-Tdp">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,6 +48,12 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search city" translatesAutoresizingMaskIntoConstraints="NO" id="qKJ-Ax-V8U">
+                                <rect key="frame" x="0.0" y="34" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,6 +68,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="3g3-ad-Pw0" id="qoE-25-XHi"/>
                         <outlet property="cityName" destination="hwg-uI-Tdp" id="kDV-mQ-NWx"/>
+                        <outlet property="searchCity" destination="qKJ-Ax-V8U" id="P0F-3o-9ky"/>
                         <outlet property="stackViewInfo" destination="O0k-GA-xFs" id="FHM-ly-nTD"/>
                         <outlet property="weatherIcon" destination="ee4-CQ-BVj" id="XJk-YY-1vZ"/>
                         <outlet property="weatherTemp" destination="7fw-rg-E3S" id="zPe-4k-mBy"/>
