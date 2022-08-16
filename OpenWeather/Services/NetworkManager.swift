@@ -32,6 +32,7 @@ class NetworkManager {
                     let forecast = Forecast.getForecast(from: value)
                     completion(.success(forecast))
                 case .failure(let error):
+                    completion(.failure(error))
                     print(error)
                 }
             }
@@ -45,6 +46,7 @@ class NetworkManager {
                 case .success(let data):
                     completion(.success(data))
                 case .failure(let error):
+                    completion(.failure(error))
                     print(error)
                 }
             }
