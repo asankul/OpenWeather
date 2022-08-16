@@ -4,59 +4,55 @@
 //
 //  Created by Асанкул Садыков on 13/8/22.
 
-struct Forecast: Decodable {
-    let coord: Coord
+struct Forecast {
     let weather: [Weather]
-    let base: String
     let main: Main
-    let visibility: Int
-    let wind: Wind
-    let clouds: Clouds
-    let dt: Int
-    let sys: Sys
-    let timezone: Int
-    let id: Int
     let name: String
-    let cod: Int
+    
+    init(weather: [Weather] = [], main: Main = Main(), name: String = "") {
+        self.weather = weather
+        self.main = main
+        self.name = name
+    }
+    
+    init(forecastData: [String: Any]) {
+        weather = Weather.getWeather(from: forecastData["weather"] ?? [])
+        main = Main.getMain(from: forecastData["main"] ?? Main())  
+        name = forecastData["name"] as? String ?? "NoName"
+    }
+    
+    static func getForecast(from value: Any) -> Forecast {
+        guard let forecastData = value as? [String: Any] else { return Forecast()}
+        return Forecast(forecastData: forecastData)
+    }
 }
 
-struct Coord: Decodable {
-    let lon: Double
-    let lat: Double
-}
-
-struct Weather: Decodable {
-    let id: Int
-    let main: String
-    let description: String
+struct Weather {
     let icon: String
+    
+    init(weatherData: [String: Any]) {
+        icon = weatherData["icon"] as? String ?? "NoIcon"
+    }
+    
+    static func getWeather(from weather: Any) -> [Weather] {
+        guard let weatherData = weather as? [[String: Any]] else { return []}
+        return weatherData.compactMap { Weather(weatherData: $0) }
+    }
 }
 
-struct Main: Decodable {
+struct Main {
     let temp: Double
-    let feels_like: Double
-    let temp_min: Double
-    let temp_max: Double
-    let pressure: Double
-    let humidity: Double
-    let sea_level: Double?
-    let grnd_level: Double?
-}
-
-struct Wind: Decodable {
-    let speed: Double
-    let deg: Double
-    let gust: Double?
-}
-
-struct Clouds: Decodable {
-    let all: Int
-}
-
-struct Sys: Decodable {
-    let type: Int
-    let id: Int
-    let country: String
-    let sunrise: Int
-    let sunset: Int
+    
+    init(temp: Double = 0.0) {
+        self.temp = temp
+    }
+    
+    init(mainData: [String: Any]) {
+        temp = mainData["temp"] as? Double ?? 0.0
+    }
+    
+    static func getMain(from main: Any) -> Main {
+        guard let mainData = main as? [String: Any] else { return Main()}
+        return Main(mainData: mainData)
+    }
 }

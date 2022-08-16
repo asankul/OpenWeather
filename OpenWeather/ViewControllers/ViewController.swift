@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         stackViewInfo.isHidden = true
-        fetchWeather()
+        fetchCityWeather(from: Link.forecastLink.rawValue)
         setSearchBar()
         searchCity.delegate = self
     }
@@ -62,35 +62,21 @@ extension ViewController: UISearchBarDelegate {
 
 // MARK: - Networking
 extension ViewController {
-    private func fetchWeather() {
-        NetworkManager.shared.fetch(Forecast.self, from: Link.forecastLink.rawValue) { [weak self] result in
-            switch result {
-            case .success(let forecast):
-                self?.setData(with: forecast)
-                self?.fetchImage(from: "https://openweathermap.org/img/wn/\(forecast.weather.first?.icon ?? "10g")@2x.png")
-            case .failure(let error):
-                print(error)
-                self?.failedAlert()
-            }
-        }
-    }
-    
     private func fetchCityWeather(from url: String) {
-        NetworkManager.shared.fetch(Forecast.self, from: url) { [weak self] result in
+        NetworkManager.shared.fetch(from: url) { [weak self] result in
             switch result {
             case .success(let forecast):
                 self?.setData(with: forecast)
                 self?.fetchImage(from: "https://openweathermap.org/img/wn/\(forecast.weather.first?.icon ?? "10g")@2x.png")
             case .failure(let error):
                 print(error)
-                print(url)
                 self?.failedAlert()
             }
         }
     }
     
     private func fetchImage(from url: String) {
-        NetworkManager.shared.fetchImage(from: url) { [weak self] result in
+        NetworkManager.shared.fetchData(from: url) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.weatherIcon.image = UIImage(data: imageData)
@@ -98,8 +84,8 @@ extension ViewController {
                 self?.stackViewInfo.isHidden = false
             case .failure(let error):
                 print(error)
+                self?.failedAlert()
             }
         }
      }
 }
-
