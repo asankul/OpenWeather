@@ -60,7 +60,7 @@
 		8E23FE9728A7FC6C00E8678F /* OpenWeather */ = {
 			isa = PBXGroup;
 			children = (
-				8E9DF7AE28A8036E0077DC09 /* Network */,
+				8E9DF7AE28A8036E0077DC09 /* Services */,
 				8E23FEAC28A7FD2200E8678F /* App */,
 				8E23FEAF28A7FD4400E8678F /* ViewControllers */,
 				8E23FEAD28A7FD2F00E8678F /* Storyboards */,
@@ -113,12 +113,12 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		8E9DF7AE28A8036E0077DC09 /* Network */ = {
+		8E9DF7AE28A8036E0077DC09 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				8E9DF7AF28A803860077DC09 /* NetworkManager.swift */,
 			);
-			path = Network;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
